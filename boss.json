@@ -1,0 +1,9 @@
+{
+	"name": "RICKShowForm",
+	"description": "This class runs a show on the form and can perform procedures before and after the show.",
+	"version": "1.0.0",
+	"homepage": "",
+	"mainsrc": "./src",
+	"projects": [],
+	"dependencies": {}
+}
