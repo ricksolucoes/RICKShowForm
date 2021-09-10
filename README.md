@@ -15,13 +15,8 @@ Add the following folders to your project, in <em>Project &gt; Options &gt; Reso
 <pre><code>../RICKShowForm/src</code></pre>
 
 <h2>⚡️ How to use the project</h2>
-<pre><code>
-  RICK.ShowForm,<br>
-  RICK.ShowForm.Iterfaces;
-  
-</code></pre>
-
-<li><strong>How to show a form.</strong>: <br>
+<br>
+<li><strong>How to show a form.</strong>: <br><br>
 
 <pre><span class="pl-k">uses</span>
 
@@ -40,7 +35,7 @@ begin
     .Show; //Open the formulary
 end;</span></pre>
 
-<li><strong>How to show two or more forms.</strong>: <br>
+<li><strong>How to show two or more forms.</strong>: <br><br>
 
 <pre><span class="pl-k">uses</span>
 
