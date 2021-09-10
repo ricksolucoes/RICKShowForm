@@ -4,22 +4,22 @@ interface
 uses
   FMX.Forms,
   System.Classes,
+  System.SysUtils,
 
-  RICK.ShowForm.Iterfaces,
-  RICK.ShowForm.CallBack;
+  RICK.ShowForm.Iterfaces;
 type
   TRICKShowForm = class(TInterfacedObject, iRICKShowForm)
   private
     FComponentClass: TComponentClass;
     FForm : TForm;
     FChangeDefaultMainForm: Boolean;
-    FExecuteBefore: TRickShowFormCallBackProc;
-    FExecuteAfter: TRickShowFormCallBackProc;
+    FExecuteBefore: TProc;
+    FExecuteAfter: TProc;
 
     function ChangeDefaultMainForm: iRICKShowForm;
     function Formulary(const AValue: TComponentClass): iRICKShowForm; overload;
-    function ExecuteBefore(const AValue: TRickShowFormCallBackProc): iRICKShowForm;
-    function ExecuteAfter(const AValue: TRickShowFormCallBackProc): iRICKShowForm;
+    function ExecuteBefore(const AValue: TProc): iRICKShowForm;
+    function ExecuteAfter(const AValue: TProc): iRICKShowForm;
     function Show: iRICKShowForm;
     function ShowOther: iRICKShowForm;
 
@@ -45,14 +45,14 @@ begin
 end;
 
 function TRICKShowForm.ExecuteAfter(
-  const AValue: TRickShowFormCallBackProc): iRICKShowForm;
+  const AValue: TProc): iRICKShowForm;
 begin
   Result:= Self;
   FExecuteAfter:= AValue;
 end;
 
 function TRICKShowForm.ExecuteBefore(
-  const AValue: TRickShowFormCallBackProc): iRICKShowForm;
+  const AValue: TProc): iRICKShowForm;
 begin
   Result:= Self;
   FExecuteBefore:= AValue;

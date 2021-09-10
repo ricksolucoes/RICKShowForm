@@ -396,7 +396,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="src\RICK.ShowForm.CallBack.pas"/>
         <DCCReference Include="src\RICK.ShowForm.Iterfaces.pas"/>
         <DCCReference Include="src\RICK.ShowForm.pas"/>
         <BuildConfiguration Include="Release">
