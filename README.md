@@ -16,7 +16,6 @@ Add the following folders to your project, in <em>Project &gt; Options &gt; Reso
 
 <h2>⚡️ How to use the project</h2>
 <pre><code>
-
   RICK.ShowForm,<br>
   RICK.ShowForm.Iterfaces;
   
