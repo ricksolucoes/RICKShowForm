@@ -15,7 +15,12 @@ Add the following folders to your project, in <em>Project &gt; Options &gt; Reso
 <pre><code>../RICKShowForm/src</code></pre>
 
 <h2>⚡️ How to use the project</h2>
-<pre><code>../RickFormat/src</code></pre>
+<pre><code>
+
+  RICK.ShowForm,<br>
+  RICK.ShowForm.Iterfaces;
+  
+</code></pre>
 
 <li><strong>How to show a form.</strong>: <br>
 
