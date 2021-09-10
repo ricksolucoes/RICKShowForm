@@ -74,6 +74,9 @@ function TRICKShowForm.ShowOther: iRICKShowForm;
 begin
   Result:= Nil;
   Result:= New;
+  FForm:= NIL;
+  FExecuteBefore:= Nil;
+  FExecuteAfter:= Nil;
 end;
 
 function TRICKShowForm.ChangeDefaultMainForm: iRICKShowForm;
