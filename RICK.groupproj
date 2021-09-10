@@ -6,7 +6,7 @@
         <Projects Include="RICKShowForm.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Samples\Delphi\FMX\RICK.Sample.dproj">
+        <Projects Include="Samples\Delphi\FMX\RICKSampleFormShow.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -26,23 +26,23 @@
     <Target Name="RICKShowForm:Make">
         <MSBuild Projects="RICKShowForm.dproj" Targets="Make"/>
     </Target>
-    <Target Name="RICK_Sample">
-        <MSBuild Projects="Samples\Delphi\FMX\RICK.Sample.dproj"/>
+    <Target Name="RICKSampleFormShow">
+        <MSBuild Projects="Samples\Delphi\FMX\RICKSampleFormShow.dproj"/>
     </Target>
-    <Target Name="RICK_Sample:Clean">
-        <MSBuild Projects="Samples\Delphi\FMX\RICK.Sample.dproj" Targets="Clean"/>
+    <Target Name="RICKSampleFormShow:Clean">
+        <MSBuild Projects="Samples\Delphi\FMX\RICKSampleFormShow.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="RICK_Sample:Make">
-        <MSBuild Projects="Samples\Delphi\FMX\RICK.Sample.dproj" Targets="Make"/>
+    <Target Name="RICKSampleFormShow:Make">
+        <MSBuild Projects="Samples\Delphi\FMX\RICKSampleFormShow.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="RICKShowForm;RICK_Sample"/>
+        <CallTarget Targets="RICKShowForm;RICKSampleFormShow"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="RICKShowForm:Clean;RICK_Sample:Clean"/>
+        <CallTarget Targets="RICKShowForm:Clean;RICKSampleFormShow:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="RICKShowForm:Make;RICK_Sample:Make"/>
+        <CallTarget Targets="RICKShowForm:Make;RICKSampleFormShow:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

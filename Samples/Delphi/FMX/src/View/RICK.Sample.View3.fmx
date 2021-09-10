@@ -1,5 +1,5 @@
-inherited PageView2: TPageView2
-  Caption = 'Page View 2'
+inherited PageView3: TPageView3
+  Caption = 'Page View 3'
   DesignerMasterStyle = 0
   inherited recContents: TRectangle
     inherited lytContents: TLayout
@@ -645,13 +645,14 @@ inherited PageView2: TPageView2
         object Label1: TLabel
           Align = Client
           AutoSize = True
-          StyledSettings = [Family, Style]
+          StyledSettings = [Style]
           Size.Width = 290.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Roboto'
           TextSettings.Font.Size = 22.000000000000000000
           TextSettings.HorzAlign = Center
-          Text = 'Page View 2'
+          Text = 'Page View 3'
           TabOrder = 0
         end
       end

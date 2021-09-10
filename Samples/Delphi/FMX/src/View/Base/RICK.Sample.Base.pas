@@ -22,6 +22,9 @@ type
     StyleBook: TStyleBook;
     imgLogo: TImage;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  protected
+    procedure BeforeShow; virtual;
+    procedure AfterShow; virtual;
   end;
 
 var
@@ -32,6 +35,16 @@ implementation
 {$R *.fmx}
 
 { TPageBase }
+
+procedure TPageBase.AfterShow;
+begin
+
+end;
+
+procedure TPageBase.BeforeShow;
+begin
+
+end;
 
 procedure TPageBase.FormClose(Sender: TObject; var Action: TCloseAction);
 begin

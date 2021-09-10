@@ -19,10 +19,14 @@ uses
 type
   TPageView1 = class(TPageBase)
     btShowForm: TSpeedButton;
+    btnShowFormTwo: TSpeedButton;
+    GridPanelLayout: TGridPanelLayout;
     procedure btShowFormClick(Sender: TObject);
+    procedure btnShowFormTwoClick(Sender: TObject);
   protected
-    procedure BeforeShow; virtual;
-    procedure AfterShow; virtual;
+    procedure BeforeShow; override;
+    procedure AfterShow; override;
+    procedure AfterShowClose;
 
   end;
 
@@ -33,19 +37,40 @@ implementation
 
 uses
   RICK.ShowForm,
-  RICK.Sample.VIew2;
+  RICK.Sample.VIew2, RICK.Sample.View3, FMX.Dialogs;
 
 {$R *.fmx}
 
 
 procedure TPageView1.AfterShow;
 begin
+  ShowMessage('After Show');
+end;
+
+procedure TPageView1.AfterShowClose;
+begin
+  ShowMessage('After Show');
   Self.Close;
 end;
 
 procedure TPageView1.BeforeShow;
 begin
-  Application.MainForm:= PageView2;
+  ShowMessage('Before Show')
+end;
+
+procedure TPageView1.btnShowFormTwoClick(Sender: TObject);
+begin
+  inherited;
+  TRICKShowForm
+    .New
+      .Formulary(TPageView2) //Inform the form's class
+      .ExecuteBefore(BeforeShow) //Procedure to be performed before show form
+      .ExecuteAfter(AfterShowClose) //Procedure to be performed after show form
+    .Show //Open the formulary
+    .ShowOther //Prepare new form to show
+      .Formulary(TPageView3) //Inform the form's class
+    .Show;  //Open the formulary
+
 end;
 
 procedure TPageView1.btShowFormClick(Sender: TObject);
@@ -53,11 +78,11 @@ begin
   inherited;
   TRICKShowForm
     .New
-      .Formulary(TPageView2)
-      .Formulary(PageView2)
-      .ExecuteBefore(BeforeShow)
-      .ExecuteAfter(AfterShow)
-    .Show;
+      .Formulary(TPageView2) //Inform the form's class
+      .ExecuteBefore(BeforeShow) //Procedure to be performed before show form
+      .ExecuteAfter(AfterShowClose) //Procedure to be performed after show form
+      .ChangeDefaultMainForm //Set the specified form as the main form
+    .Show; //Open the formulary
 end;
 
 end.

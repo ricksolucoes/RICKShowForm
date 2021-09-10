@@ -5,21 +5,23 @@ uses
   FMX.Forms,
   System.Classes,
 
-  RICK.ShowForm.CallBack,
-  RICK.ShowForm.Iterfaces;
+  RICK.ShowForm.Iterfaces,
+  RICK.ShowForm.CallBack;
 type
   TRICKShowForm = class(TInterfacedObject, iRICKShowForm)
   private
     FComponentClass: TComponentClass;
     FForm : TForm;
+    FChangeDefaultMainForm: Boolean;
     FExecuteBefore: TRickShowFormCallBackProc;
     FExecuteAfter: TRickShowFormCallBackProc;
 
+    function ChangeDefaultMainForm: iRICKShowForm;
     function Formulary(const AValue: TComponentClass): iRICKShowForm; overload;
-    function Formulary(const AValue : TForm): iRICKShowForm; overload;
     function ExecuteBefore(const AValue: TRickShowFormCallBackProc): iRICKShowForm;
     function ExecuteAfter(const AValue: TRickShowFormCallBackProc): iRICKShowForm;
     function Show: iRICKShowForm;
+    function ShowOther: iRICKShowForm;
 
     constructor Create;
   public
@@ -33,7 +35,7 @@ implementation
 
 constructor TRICKShowForm.Create;
 begin
-
+  FChangeDefaultMainForm:= False;
 end;
 
 destructor TRICKShowForm.Destroy;
@@ -56,12 +58,6 @@ begin
   FExecuteBefore:= AValue;
 end;
 
-function TRICKShowForm.Formulary(const AValue: TForm): iRICKShowForm;
-begin
-  Result:= Self;
-  FForm:= AValue;
-end;
-
 function TRICKShowForm.Formulary(
   const AValue: TComponentClass): iRICKShowForm;
 begin
@@ -74,11 +70,27 @@ begin
   Result:= Self.Create;
 end;
 
+function TRICKShowForm.ShowOther: iRICKShowForm;
+begin
+  Result:= Nil;
+  Result:= New;
+end;
+
+function TRICKShowForm.ChangeDefaultMainForm: iRICKShowForm;
+begin
+  Result:= Self;
+  FChangeDefaultMainForm:= True;
+end;
+
 function TRICKShowForm.Show: iRICKShowForm;
 begin
   Result:= Self;
+
   if not Assigned(FForm) then
     Application.CreateForm(FComponentClass, FForm);
+
+  if FChangeDefaultMainForm then
+    Application.MainForm:= FForm;
 
   if Assigned(FExecuteBefore) then
     FExecuteBefore;
