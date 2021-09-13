@@ -16,13 +16,12 @@
 $ boss install https://github.com/ricksolucoes/RICKShowForm
 ```
 - Manual Installation
-  - Download the RICKLoading;
+  - Download the RICKShowForm;
   - Add the following folders to your project, in <em>Project &gt; Options &gt; Resource Compiler &gt; Directories and Conditionals &gt; Include file search path ``` ../RICKShowForm/src ```
 
  ## ⚡️ How to use the project
-Example of using the **RICKShowForm**
 
-## Sample Show Form
+  Example of using the **RICKShowForm**
   
 - How to show a form
 ```delphi  
