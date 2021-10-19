@@ -21,7 +21,7 @@ type
     function ExecuteBefore(const AValue: TProc): iRICKShowForm;
     function ExecuteAfter(const AValue: TProc): iRICKShowForm;
     function Show: iRICKShowForm;
-    function ShowOther: iRICKShowForm;
+    function DoNewForm: iRICKShowForm;
 
     constructor Create;
   public
@@ -70,7 +70,7 @@ begin
   Result:= Self.Create;
 end;
 
-function TRICKShowForm.ShowOther: iRICKShowForm;
+function TRICKShowForm.DoNewForm: iRICKShowForm;
 begin
   Result:= Nil;
   Result:= New;

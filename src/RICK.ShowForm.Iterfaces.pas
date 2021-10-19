@@ -16,7 +16,7 @@ type
     function ExecuteBefore(const AValue: TProc): iRICKShowForm;
     function ExecuteAfter(const AValue: TProc): iRICKShowForm;
     function Show: iRICKShowForm;
-    function ShowOther: iRICKShowForm;
+    function DoNewForm: iRICKShowForm;
   end;
 
 
